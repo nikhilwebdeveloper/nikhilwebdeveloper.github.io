@@ -1,0 +1,89 @@
+.wrapper, .dynamic-txts, .static-txt{
+    padding: 0;
+    margin: 0;
+}
+.wrapper{
+    display: flex;
+    position: relative;
+    top: 5px;
+}
+
+.wrapper .static-txt{
+    color: #fff;
+    /* font-size: 60px; */
+    font-size: 57px;
+    font-weight: 400;
+}
+
+.wrapper .dynamic-txts{
+    margin-left: 15px;
+    line-height: 80px;
+    height: 80px;
+    overflow: hidden;
+}
+
+.dynamic-txts li{
+    list-style: none;
+    /* font-size: 60px; */
+    font-size: 57px;
+    color: #ff4c29;
+    font-weight: 500;
+    top: 0;
+    position: relative;
+    animation: slide 6s steps(3)
+    infinite;
+}
+@keyframes slide {
+    100%{
+        top: -241.5px;
+        /* top: -161.5px; */
+    }
+}
+
+.dynamic-txts li{
+    position: relative;
+
+}
+
+.dynamic-txts li::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: #002032;
+    border-left: 2px solid #ff4c29;
+    animation: typing 2s steps(10) 
+    infinite;
+}
+
+@keyframes typing {
+    30%,
+    40%,
+    60% {
+        /* left: calc(100% + 4px); */
+        left: 100%;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+@media only screen  and (max-width: 500px){
+    .wrapper{
+        justify-content: center;
+    }
+    .wrapper .static-txt{
+        font-size: 45px;
+        position: relative;
+        top: 8px;
+    }
+    .dynamic-txts li{
+        font-size: 40px;
+    }
+    .dynamic-txts li::after{
+        top: 18px;
+        height: 55%;
+    }
+}
